@@ -1,9 +1,12 @@
 import re
-count = 0
-hand = open("numbers.txt")
-lines = hand.read()
-match = re.findall('[0-9]+',lines)
-for i in match:
-	number = int(i)
-	count = count + number
-print (count)
+fh = open('regex_sum_613186.txt')
+numlist = list()
+for line in fh:
+    stuff = re.findall('[0-9]+', line)
+    if len(stuff) < 1:
+        continue
+    for anum in stuff:
+        num = int(anum)
+        numlist.append(num)
+print(numlist)
+print(sum(numlist))
